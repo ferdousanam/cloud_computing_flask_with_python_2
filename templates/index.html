@@ -1,0 +1,7 @@
+{% extends 'base_template.html' %}
+{% block title %}<title>Home Page</title>{% endblock %}
+{% block maincontent %}
+    <h2 class="alert alert-success">This is Home Page</h2>
+    <a class="btn btn-info" href="{{ url_for('about') }}">About</a>
+    <a class="btn btn-success" href="{{ url_for('view_image') }}">View Images</a>
+{% endblock %}

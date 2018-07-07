@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}{% endblock %}
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+</head>
+<body>
+<div class="container">
+    {% block maincontent %}{% endblock %}
+</div>
+<script type=text/javascript src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="{{ url_for('static', filename='js/bootstrap.min.js' ) }}"></script>
+	{% block customjavascript %}{% endblock %}
+</body>
+</html>
