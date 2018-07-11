@@ -36,7 +36,19 @@ def about():
 
 @app.route('/view_image', methods=['GET', 'POST'])
 def view_image():
-    return render_template('view_image.html')
+    if request.method == 'POST':
+        data = {}
+        data['submit'] = request.form['submit']
+        return render_template('view_image.html', data = data)
+    else:
+        return render_template('view_image.html')
+
+
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html",result = result)
 
 
 if __name__ == '__main__':

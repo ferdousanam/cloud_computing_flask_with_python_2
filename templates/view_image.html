@@ -3,19 +3,26 @@
 {% block maincontent %}
     <h2 class="alert alert-success">This is view Image Page</h2>
     <div class="container row">
-        <button class="btn btn-warning">Click Here!</button>
         <a class="btn btn-success" href="{{ url_for('index') }}"><span class="glyphicon glyphicon-home"></span> Home</a>
+        <div class="panel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Show Image Panel</div>
+                <div class="panel-body">
+                    <form action="{{ url_for('view_image') }}" method="post">
+                        <div class="form-group">
+                            <input class="btn btn-warning" type="submit" name="submit" value="Click Here!">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container row">
-        <img class="img-responsive center-block" src="{{ url_for('static', filename='img1.jpg') }}" alt="" style="display: none">
-    </div>
+    {% if data %}
+        {% set show = true %}
+    {% endif %}
+    {% if show %}
+        <div class="container row">
+            <img class="img-responsive center-block" src="{{ url_for('static', filename='img1.jpg') }}" alt="">
+        </div>
+    {% endif %}
 {% endblock %}
-{% block customjavascript %}
-    <script type=text/javascript>
-        $( "button" ).click(function() {
-          $( "img" ).toggle( "slow" );
-        });
-    </script>
-{% endblock %}
-</body>
-</html>
