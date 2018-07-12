@@ -3,6 +3,7 @@ from wtforms import Form, TextField, TextAreaField, validators, StringField, Sub
 import requests
 import json
 import logging
+import sqlite3
 import requests_toolbelt.adapters.appengine
 
 requests_toolbelt.adapters.appengine.monkeypatch()
@@ -19,7 +20,7 @@ except ImportError:
     from urllib import urlencode
 
 # App config.
-DEBUG = True
+# DEBUG = True
 app = Flask(__name__)
 
 
@@ -51,6 +52,20 @@ def result():
         return render_template("result.html",result = result)
 
 
+@app.route('/list',methods = ['POST', 'GET'])
+def list():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    sql = "SELECT * FROM users"
+    cur.execute(sql)
+    rows = cur.fetchall()
+    for line in rows:
+        print ' '.join(map(str, line))
+
+    print(rows)
+    return render_template("result.html",results = rows)
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 

@@ -3,12 +3,45 @@
 <head>
     <meta charset="UTF-8">
     {% block title %}{% endblock %}
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
 
 </head>
 <body>
-<div class="container">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-inner"> <!--changes made here-->
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    Cloud Computing Invincible
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/list">List</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container anam-container">
     {% block maincontent %}{% endblock %}
 </div>
 <script type=text/javascript src="{{ url_for('static', filename='js/jquery.js') }}"></script>
@@ -16,5 +49,21 @@
 <!-- Latest compiled JavaScript -->
 <script src="{{ url_for('static', filename='js/bootstrap.min.js' ) }}"></script>
 	{% block customjavascript %}{% endblock %}
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="copyright">
+                    © 2018, Cloud Computing Invincible, All rights reserved
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="design">
+                    <a href="{{ url_for('index') }}">UIU </a> |  <a target="_blank" href="http://cse.uiu.ac.bd">Dept. Of CSE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
