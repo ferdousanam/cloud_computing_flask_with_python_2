@@ -3,13 +3,25 @@ body {
 }
 
 .anam-container {
-    /*margin-top: 500px;*/
+    min-height: 550px;
+    border: 1px solid #15224f;
+    border-radius: 5px;
+}
+
+.header-top {
+    background-color: #15224f;
+    color: #ffffff;
+}
+
+.navbar-header a, nav a {
+    color: #ffffff;
 }
 
 .footer-bottom {
     background-color: #15224f;
     min-height: 30px;
     width: 100%;
+    margin-top: 15px;
 }
 .copyright {
     color: #fff;

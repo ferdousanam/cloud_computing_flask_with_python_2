@@ -6,7 +6,7 @@
         <a class="btn btn-success" href="{{ url_for('index') }}"><span class="glyphicon glyphicon-home"></span> Home</a>
         <div class="panel-group">
             <div class="panel panel-primary">
-                <div class="panel-heading">Show Image Panel</div>
+                <div class="panel-heading">Show Image Trigger</div>
                 <div class="panel-body">
                     <form action="{{ url_for('view_image') }}" method="post">
                         <div class="form-group">
@@ -22,7 +22,15 @@
     {% endif %}
     {% if show %}
         <div class="container row">
-            <img class="img-responsive center-block" src="{{ url_for('static', filename='img1.jpg') }}" alt="">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Show Image Panel</div>
+                    <div class="panel-body">
+                        <img class="img-responsive center-block" src="{{ url_for('static', filename='img1.jpg') }}"
+                             alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     {% endif %}
 {% endblock %}
